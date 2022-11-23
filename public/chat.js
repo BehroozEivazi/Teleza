@@ -34,16 +34,12 @@ socket.on("chat-message", (data) => {
     feedBack.innerHTML = "";
     chatBox.innerHTML += `
     <li class="alert alert-light">
-        <span
-        class="text-dark font-weight-normal"
-        style="font-size: 13pt"
-        >${data.name}</span
-        >
+        <span class="text-dark font-weight-normal"
+        style="font-size: 13pt">${data.name}</span>
     <span
         class="text-muted
         font-italic font-weight-light m-2"
-        style="font-size: 9pt"
-        >ساعت 12:00</span>
+        style="font-size: 9pt">ساعت 12:00</span>
     <p class="alert alert-info mt-2"  style="font-family: persian01">
         ${data.message}
     </p>
