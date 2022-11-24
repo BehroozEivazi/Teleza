@@ -1,1 +1,14 @@
-/node_modules
+# server ignore
+/Server/node_modules
+
+
+# client 
+/Client/node_modules
+/Client/.pnp
+/Client.pnp.js
+
+# testing
+/Client/coverage
+
+# production
+/Client/build

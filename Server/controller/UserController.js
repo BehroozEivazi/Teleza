@@ -1,5 +1,6 @@
 const User = require("../model/User");
 const utils = require("../common/utils");
+const { Transform } = require("./transform/ResultTransform");
 exports.UserController = {
     Register: async (req, res) => {
         try {
@@ -15,18 +16,11 @@ exports.UserController = {
 
     Login: async (req, res) => {
         try {
-            let user = await User.findOne({ Email: req.body.Email });
-            let isValid = await utils.comparePassword(req.body.Password, user.Password);
+            let result = await User.findOne({ Email: req.body.Email }).exec();
+            let isValid = await utils.comparePassword(req.body.Password, result.Password);
             if (isValid) {
-                let result = utils.signToken({ id: user._id });
-                user.Token = result;
-                let val = Object.assign(
-                    {
-                        Token: result,
-                    },
-                    user
-                );
-                res.status(200).json(val);
+                let user = Transform.userTransform(result);
+                res.status(200).json(user);
             } else {
                 res.status(404).json({ message: "رمز عبور کصشر نزن حاجی" });
             }
