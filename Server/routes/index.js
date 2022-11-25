@@ -9,7 +9,10 @@ const router = express.Router();
 router.post("/register", UserController.Register);
 router.post("/login", UserController.Login);
 
-router.post("/room-create", Validator.TokenValidator, RoomController.Create);
-router.post("/rooms", Validator.TokenValidator, RoomController.GetRooms);
+router.post("/room-create", Validator.TokenValidator, RoomController.create);
+router.post("/rooms", Validator.TokenValidator, RoomController.getRooms);
+router.post("/room-add-user", Validator.TokenValidator, RoomController.addUserTooRoom);
+router.post("/room-remove-user", Validator.TokenValidator, RoomController.removeUserFromRoom);
+router.post("/room-joined", Validator.TokenValidator, RoomController.joinedRooms);
 
 module.exports = router;
