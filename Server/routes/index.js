@@ -10,5 +10,6 @@ router.post("/register", UserController.Register);
 router.post("/login", UserController.Login);
 
 router.post("/room-create", Validator.TokenValidator, RoomController.Create);
+router.post("/rooms", Validator.TokenValidator, RoomController.GetRooms);
 
 module.exports = router;

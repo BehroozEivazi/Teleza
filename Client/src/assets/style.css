@@ -52,6 +52,6 @@
     background: var(--side);
 }
 .ant-layout-content {
-    background: var(--content);
+    background: none;
     color: var(--textColor);
 }

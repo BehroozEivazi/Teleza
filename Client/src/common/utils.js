@@ -2,7 +2,7 @@ import axios from "axios";
 import qs from "qs";
 class utils {
     userInfo() {
-        let usertoken = localStorage.getItem("usertoken");
+        let usertoken = JSON.parse(localStorage.getItem("usertoken"));
         let user = {
             id: -1,
             isLogin: false,

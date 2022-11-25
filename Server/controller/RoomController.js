@@ -12,9 +12,15 @@ const RoomController = {
                 });
             }
         } catch (error) {
-            res.status(400).json({
-                message: "ایجاد اتاق با خطا مواجه شد",
-            });
+            console.log(error);
+        }
+    },
+    GetRooms: async (req, res) => {
+        try {
+            let result = await Room.find({ UserID: req.body.UserID });
+            return res.status(200).json(result);
+        } catch (error) {
+            console.log(error);
         }
     },
 };

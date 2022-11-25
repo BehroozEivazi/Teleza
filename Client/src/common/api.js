@@ -10,6 +10,15 @@ class api {
         let res = utils.fetchData(obj);
         return res;
     }
+
+    roomsList(params) {
+        let obj = {};
+        obj.params = params;
+        obj.url = BASE_URL_API + "api/rooms";
+        obj.method = "POST";
+        let res = utils.fetchData(obj);
+        return res;
+    }
 }
 
 export default api = new api();
